@@ -4,26 +4,12 @@ from typing import Any, Dict, List, Optional
 import httpx
 from apify import Actor
 
-# 稼働検証済みの米国3都市 Socrata SODA API エンドポイント定義
+# 稼働検証済み：Austin 市公式 Socrata SODA API エンドポイント定義
 CITY_CONFIGS: Dict[str, Dict[str, Any]] = {
-    "seattle": {
-        "city_name": "Seattle",
-        "state": "WA",
-        "endpoint": "https://data.seattle.gov/resource/76t5-zqzr.json",
-        "date_field": "issueddate",
-        "order_field": "issueddate DESC",
-    },
     "austin": {
         "city_name": "Austin",
         "state": "TX",
         "endpoint": "https://data.austintexas.gov/resource/3syk-w9eu.json",
-        "date_field": "issue_date",
-        "order_field": "issue_date DESC",
-    },
-    "los_angeles": {
-        "city_name": "Los Angeles",
-        "state": "CA",
-        "endpoint": "https://data.lacity.org/resource/pi9x-tg5x.json",
         "date_field": "issue_date",
         "order_field": "issue_date DESC",
     },
@@ -77,18 +63,7 @@ def normalize_record(city_key: str, raw: Dict[str, Any]) -> Dict[str, Any]:
     zip_code = ""
     contractor = ""
 
-    if city_key == "seattle":
-        permit_id = clean_str(raw.get("permitnum"))
-        issued_date = clean_str(raw.get("issueddate"))[:10]
-        permit_type = clean_str(raw.get("permittypemapped") or raw.get("permittypedesc"))
-        status = clean_str(raw.get("statuscurrent"))
-        description = clean_str(raw.get("description"))
-        valuation = safe_float(raw.get("estprojectcost"))
-        address = clean_str(raw.get("originaladdress1"))
-        zip_code = clean_str(raw.get("originalzip"))
-        contractor = clean_str(raw.get("contractorcompanyname"))
-
-    elif city_key == "austin":
+    if city_key == "austin":
         permit_id = clean_str(raw.get("permit_number"))
         issued_date = clean_str(raw.get("issue_date"))[:10]
         permit_type = clean_str(raw.get("permit_type_desc") or raw.get("permit_type"))
@@ -98,23 +73,6 @@ def normalize_record(city_key: str, raw: Dict[str, Any]) -> Dict[str, Any]:
         address = clean_str(raw.get("original_address1"))
         zip_code = clean_str(raw.get("original_zip"))
         contractor = clean_str(raw.get("contractor_company_name"))
-
-    elif city_key == "los_angeles":
-        permit_id = clean_str(raw.get("permit_nbr"))
-        issued_date = clean_str(raw.get("issue_date"))[:10]
-        permit_type = clean_str(raw.get("permit_type"))
-        status = clean_str(raw.get("status_desc"))
-        description = clean_str(raw.get("work_desc"))
-        valuation = safe_float(raw.get("valuation"))
-        addr_parts = [
-            clean_str(raw.get("address_start")),
-            clean_str(raw.get("street_direction")),
-            clean_str(raw.get("street_name")),
-            clean_str(raw.get("street_suffix")),
-        ]
-        address = " ".join(p for p in addr_parts if p)
-        zip_code = clean_str(raw.get("zip_code"))
-        contractor = clean_str(raw.get("contractors_business_name"))
 
     trade_category = detect_trade(description, permit_type)
 
@@ -186,7 +144,7 @@ async def fetch_city_permits(
 async def main() -> None:
     async with Actor:
         actor_input = await Actor.get_input() or {}
-        cities: List[str] = actor_input.get("cities") or ["seattle", "austin"]
+        cities: List[str] = actor_input.get("cities") or ["austin"]
         trade_filter: str = actor_input.get("tradeFilter", "all")
         custom_keyword: str = clean_str(actor_input.get("customKeyword", ""))
         days_back: int = int(actor_input.get("daysBack", 30))

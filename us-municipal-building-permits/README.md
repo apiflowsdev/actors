@@ -1,59 +1,61 @@
-# US Municipal Building Permits
+# Austin, TX Building Permits — Official Open Data
 
-Extract standardized municipal building permit records from official US city open-data APIs — **Seattle, Austin, and Los Angeles** — in one clean, fixed JSON schema.
+Extract standardized building permit records for **Austin, Texas** from the City of Austin's official open data API, in one clean, fixed JSON schema.
 
-Each city portal publishes permits with different column names (`estprojectcost` vs. `total_job_valuation` vs. `valuation`), date formats, and address structures. This Actor queries the official Socrata APIs directly, normalizes every record into the same schema, classifies the construction trade, deduplicates, and delivers dataset items that pipelines, analytics tools, and AI agents can consume without per-city parsing code.
+The City of Austin publishes issued construction permits through its open data portal. This Actor queries the official Socrata API directly, normalizes every record into a fixed schema, classifies the construction trade, deduplicates, and delivers dataset items that pipelines, analytics tools, and AI agents can consume without writing their own Socrata integration.
 
 ## What you get
 
-- **Official public records only** — data comes straight from the cities' open-data endpoints; no synthetic or fabricated rows.
-- **One schema for every city** — the same 14 fields regardless of source portal.
+- **Official public records only** — data comes straight from the City of Austin's open data endpoint; no synthetic or fabricated rows.
+- **Public domain data** — the City of Austin offers its open data free and without restriction; datasets are in the public domain unless otherwise noted (see Attribution below).
 - **Built-in trade classification** — filter by Solar, Roofing, Pool, ADU, HVAC, Electrical, or New Construction, or add your own keyword.
 - **Business data only** — output includes permit IDs, property addresses, valuations, work descriptions, and contractor *business* names. Individual homeowner/applicant names, phone numbers, and emails are never included.
 - **Pay per result** — you are charged per permit record delivered ($0.005/record), plus a minimal Actor start fee. Set a maximum total charge on the run to cap spend; the Actor stops gracefully when the cap is reached.
 
-## Supported cities & official sources
+## Data source
 
-| City | State | Official open-data portal | Endpoint ID |
-| :--- | :--- | :--- | :--- |
-| **Seattle** | WA | `data.seattle.gov` | `76t5-zqzr` |
-| **Austin** | TX | `data.austintexas.gov` | `3syk-w9eu` |
-| **Los Angeles** | CA | `data.lacity.org` | `pi9x-tg5x` |
+| City | State | Official open-data portal | Dataset | Endpoint ID |
+| :--- | :--- | :--- | :--- | :--- |
+| **Austin** | TX | `data.austintexas.gov` | Issued Construction Permits | `3syk-w9eu` |
 
 ## Input parameters
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| `cities` | Array | One or more of `seattle`, `austin`, `los_angeles`. |
+| `cities` | Array | Currently `austin` only. |
 | `tradeFilter` | String | `all`, `solar`, `roofing`, `pool`, `adu`, `hvac`, `electrical`, or `new_construction`. |
 | `customKeyword` | String | Optional case-insensitive keyword matched against the work description (e.g. `"EV CHARGER"`, `"SIDING"`, `"REMODEL"`). |
 | `daysBack` | Integer | Fetch permits issued within the last N days (default `30`, max `365`). |
 | `minValuationUsd` | Integer | Only return permits at or above this estimated project cost (default `0`). |
-| `maxItemsPerCity` | Integer | Maximum matching records per city (default `100`). |
+| `maxItemsPerCity` | Integer | Maximum matching records (default `100`). |
 
 ## Output example (normalized JSON)
 
 ```json
 {
-  "city": "Seattle",
-  "state": "WA",
-  "permit_id": "24-101234",
+  "city": "Austin",
+  "state": "TX",
+  "permit_id": "2026-123456 BP",
   "issued_date": "2026-11-12",
-  "permit_type": "Construction Permit",
+  "permit_type": "Building Permit",
   "trade_category": "roofing",
   "status": "Issued",
   "estimated_value_usd": 24500.0,
-  "address": "2410 10TH AVE E",
-  "zip_code": "98102",
+  "address": "2410 EXAMPLE ST",
+  "zip_code": "78704",
   "contractor_name": "EXAMPLE ROOFING CO LLC",
-  "work_description": "TEAR OFF AND RE-ROOF EXISTING SINGLE-FAMILY RESIDENCE.",
-  "source_endpoint": "https://data.seattle.gov/resource/76t5-zqzr.json",
+  "work_description": "Residential roofing replacement.",
+  "source_endpoint": "https://data.austintexas.gov/resource/3syk-w9eu.json",
   "scraped_at": "2026-11-17T00:00:00+00:00"
 }
 ```
 
+## Attribution
+
+Permit data: **City of Austin, Texas — Austin Development Services**, via the City of Austin Open Data Portal (https://data.austintexas.gov). Per the City of Austin Open Data Terms of Use, data on the portal are offered free and without restriction and are in the public domain unless otherwise noted.
+
 ## Data notes
 
-- Records are retrieved live from the official endpoints at run time; each item carries its `source_endpoint` and retrieval timestamp (`scraped_at`) for provenance.
-- Source data is published by each city under its own open-data terms and is provided "as is"; the cities make no warranty as to accuracy, timeliness, or completeness. Verify critical records against the source portal.
-- Permit coverage, fields, and update cadence are controlled by the cities and may change without notice.
+- Records are retrieved live from the official endpoint at run time; each item carries its `source_endpoint` and retrieval timestamp (`scraped_at`) for provenance.
+- The City of Austin provides the data "as is" and makes no warranty as to accuracy, timeliness, or completeness. Verify critical records against the source portal.
+- Permit coverage, fields, and update cadence are controlled by the City and may change without notice.

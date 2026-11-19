@@ -1,1 +1,73 @@
-{"actorSpecification":1,"description":"Extract standardized municipal building permit records from official US city open data APIs (Seattle, Austin, Los Angeles). Filter by trade category, keyword, minimum valuation, and issue date into one clean JSON schema for pipelines, analytics, and AI agents.","dockerfile":"../Dockerfile","input":"./input_schema.json","meta":{"generatedBy":"Muse Spark (M) via Muse","templateId":"python-start"},"name":"us-municipal-building-permits","storages":{"dataset":{"actorSpecification":1,"title":"Normalized Building Permits Dataset","views":{"overview":{"display":{"component":"table","properties":{"address":{"format":"text","label":"Address"},"city":{"format":"text","label":"City"},"contractor_name":{"format":"text","label":"Contractor"},"estimated_value_usd":{"format":"number","label":"Valuation ($)"},"issued_date":{"format":"text","label":"Issued Date"},"permit_id":{"format":"text","label":"Permit ID"},"trade_category":{"format":"text","label":"Trade"},"work_description":{"format":"text","label":"Description"}}},"title":"Overview","transformation":{"fields":["city","permit_id","issued_date","trade_category","estimated_value_usd","address","contractor_name","work_description"]}}}}},"title":"US Municipal Building Permits","version":"0.1"}
+{
+  "actorSpecification": 1,
+  "description": "Extract standardized building permit records for Austin, Texas from the City of Austin's official open data API (public domain data). Filter by trade category, keyword, minimum valuation, and issue date into one clean JSON schema for pipelines, analytics, and AI agents.",
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "meta": {
+    "generatedBy": "Muse Spark (M) via Muse",
+    "templateId": "python-start"
+  },
+  "name": "us-municipal-building-permits",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Normalized Building Permits Dataset",
+      "views": {
+        "overview": {
+          "display": {
+            "component": "table",
+            "properties": {
+              "address": {
+                "format": "text",
+                "label": "Address"
+              },
+              "city": {
+                "format": "text",
+                "label": "City"
+              },
+              "contractor_name": {
+                "format": "text",
+                "label": "Contractor"
+              },
+              "estimated_value_usd": {
+                "format": "number",
+                "label": "Valuation ($)"
+              },
+              "issued_date": {
+                "format": "text",
+                "label": "Issued Date"
+              },
+              "permit_id": {
+                "format": "text",
+                "label": "Permit ID"
+              },
+              "trade_category": {
+                "format": "text",
+                "label": "Trade"
+              },
+              "work_description": {
+                "format": "text",
+                "label": "Description"
+              }
+            }
+          },
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "city",
+              "permit_id",
+              "issued_date",
+              "trade_category",
+              "estimated_value_usd",
+              "address",
+              "contractor_name",
+              "work_description"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "title": "Austin, TX Building Permits — Official Open Data",
+  "version": "0.2"
+}
