@@ -69,5 +69,6 @@
     }
   },
   "title": "Austin, TX Building Permits — Official Open Data",
-  "version": "0.2"
+  "version": "0.3",
+  "output": "./output_schema.json"
 }

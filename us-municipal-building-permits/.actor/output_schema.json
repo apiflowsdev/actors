@@ -1,11 +1,12 @@
 {
-    "$schema": "https://apify.com/schemas/v1/output.ide.json",
     "actorOutputSchemaVersion": 1,
-    "title": "Output schema",
+    "title": "Austin Building Permits output",
+    "description": "Standardized Austin, TX building permit records delivered in the Actor's default dataset (one JSON item per permit).",
     "properties": {
-        "results": {
+        "permits": {
             "type": "string",
-            "title": "Results",
+            "title": "Permit records",
+            "description": "Normalized building permit records in the default dataset.",
             "template": "{{links.apiDefaultDatasetUrl}}/items"
         }
     }
