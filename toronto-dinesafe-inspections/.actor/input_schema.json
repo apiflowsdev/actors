@@ -1,0 +1,76 @@
+{
+  "description": "Configure date range, inspection status, severity, and name filters to extract Toronto DineSafe inspection records from the City of Toronto's official open data.",
+  "properties": {
+    "daysBack": {
+      "default": 90,
+      "prefill": 90,
+      "description": "Fetch inspections performed within the last N days.",
+      "editor": "number",
+      "maximum": 3650,
+      "minimum": 1,
+      "title": "Lookback Period (Days)",
+      "type": "integer"
+    },
+    "statusFilter": {
+      "default": "all",
+      "prefill": "all",
+      "description": "Filter by the inspection outcome assigned by Toronto Public Health.",
+      "editor": "select",
+      "enum": [
+        "all",
+        "pass",
+        "conditional_pass",
+        "closed"
+      ],
+      "enumTitles": [
+        "All Inspections",
+        "Pass",
+        "Conditional Pass",
+        "Closed"
+      ],
+      "title": "Inspection Status",
+      "type": "string"
+    },
+    "keyword": {
+      "description": "Optional keyword matched against the establishment name (case-insensitive), e.g. 'SUSHI' or 'PIZZA'.",
+      "editor": "textfield",
+      "example": "SUSHI",
+      "title": "Establishment Name Keyword (Optional)",
+      "type": "string"
+    },
+    "minSeverity": {
+      "default": "all",
+      "prefill": "all",
+      "description": "Only return inspections that include at least one infraction at this severity or higher. Inspections with no infractions are included only when 'all' is selected.",
+      "editor": "select",
+      "enum": [
+        "all",
+        "minor",
+        "significant",
+        "crucial"
+      ],
+      "enumTitles": [
+        "All Inspections",
+        "Minor or higher",
+        "Significant or higher",
+        "Crucial only"
+      ],
+      "title": "Minimum Infraction Severity",
+      "type": "string"
+    },
+    "maxItems": {
+      "default": 100,
+      "prefill": 100,
+      "description": "Maximum number of inspection records to extract.",
+      "editor": "number",
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Max Inspections",
+      "type": "integer"
+    }
+  },
+  "required": [],
+  "schemaVersion": 1,
+  "title": "Toronto DineSafe Inspections Input",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+{
+  "actorSpecification": 1,
+  "description": "Extract standardized Toronto DineSafe food-premises inspection records from the City of Toronto's official open data (Open Government Licence - Toronto). One item per inspection with full infraction detail, severity levels, and prosecution outcomes. Filter by date range, inspection status, minimum severity, and establishment name.",
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "meta": {
+    "generatedBy": "Muse Spark (M) via Muse",
+    "templateId": "python-start"
+  },
+  "name": "toronto-dinesafe-inspections",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Toronto DineSafe Inspections Dataset",
+      "views": {
+        "overview": {
+          "display": {
+            "component": "table",
+            "properties": {
+              "establishment_name": {
+                "format": "text",
+                "label": "Establishment"
+              },
+              "inspection_date": {
+                "format": "text",
+                "label": "Inspection Date"
+              },
+              "status": {
+                "format": "text",
+                "label": "Status"
+              },
+              "infraction_count": {
+                "format": "number",
+                "label": "Infractions"
+              },
+              "address": {
+                "format": "text",
+                "label": "Address"
+              },
+              "postal_code": {
+                "format": "text",
+                "label": "Postal Code"
+              }
+            }
+          },
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "establishment_name",
+              "inspection_date",
+              "status",
+              "infraction_count",
+              "address",
+              "postal_code"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "title": "Toronto DineSafe Restaurant Inspections - Official Open Data",
+  "version": "0.2",
+  "output": "./output_schema.json"
+}

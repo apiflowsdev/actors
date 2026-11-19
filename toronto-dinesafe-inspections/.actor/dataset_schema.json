@@ -1,0 +1,88 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "establishment_id": {
+      "title": "Establishment ID",
+      "description": "Official City of Toronto establishment identifier.",
+      "type": "string"
+    },
+    "establishment_name": {
+      "title": "Establishment Name",
+      "description": "Food establishment (business) name as published in the public inspection record.",
+      "type": "string"
+    },
+    "address": {
+      "title": "Address",
+      "description": "Street address of the establishment, as published in the public inspection record.",
+      "type": "string"
+    },
+    "postal_code": {
+      "title": "Postal Code",
+      "description": "Canadian postal code extracted from the published address, when present.",
+      "type": "string"
+    },
+    "inspection_date": {
+      "title": "Inspection Date",
+      "description": "Date of the inspection, YYYY-MM-DD.",
+      "type": "string"
+    },
+    "status": {
+      "title": "Status",
+      "description": "Inspection outcome assigned by Toronto Public Health: Pass, Conditional Pass, or Closed.",
+      "type": "string"
+    },
+    "latitude": {
+      "title": "Latitude",
+      "description": "Latitude of the establishment, when provided by the source.",
+      "type": "number"
+    },
+    "longitude": {
+      "title": "Longitude",
+      "description": "Longitude of the establishment, when provided by the source.",
+      "type": "number"
+    },
+    "infraction_count": {
+      "title": "Infraction Count",
+      "description": "Number of infractions recorded at this inspection (0 for a clean inspection).",
+      "type": "integer"
+    },
+    "infractions": {
+      "title": "Infractions",
+      "description": "Infraction detail for this inspection: category, detail, severity as published, and normalized severity_level (Minor, Significant, or Crucial).",
+      "type": "array"
+    },
+    "observation": {
+      "title": "Observation",
+      "description": "Inspector observation summary published with the inspection, when present.",
+      "type": "string"
+    },
+    "outcome_date": {
+      "title": "Outcome Date",
+      "description": "Date of a prosecution outcome, when one is recorded; empty otherwise.",
+      "type": "string"
+    },
+    "outcome_description": {
+      "title": "Outcome Description",
+      "description": "Description of a prosecution outcome, when one is recorded; empty otherwise.",
+      "type": "string"
+    },
+    "amount_fined": {
+      "title": "Amount Fined (CAD)",
+      "description": "Fine amount in CAD when a prosecution outcome imposed one; null otherwise.",
+      "type": "number"
+    },
+    "source_endpoint": {
+      "title": "Source Endpoint",
+      "description": "Official City of Toronto open-data page the records were retrieved from.",
+      "type": "string"
+    },
+    "scraped_at": {
+      "title": "Retrieved At",
+      "description": "UTC timestamp of when this Actor retrieved the record (ISO 8601).",
+      "type": "string"
+    }
+  },
+  "title": "Toronto DineSafe Inspections Dataset",
+  "views": {}
+}

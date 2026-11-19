@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Toronto DineSafe Inspections output",
+  "description": "Standardized Toronto DineSafe inspection records delivered in the Actor's default dataset (one JSON item per inspection).",
+  "properties": {
+    "inspections": {
+      "type": "string",
+      "title": "Inspection records",
+      "description": "Normalized DineSafe inspection records in the default dataset.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
