@@ -1,0 +1,168 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "crossing_id": {
+      "title": "Crossing ID",
+      "description": "U.S. DOT Grade Crossing Identification Number assigned by the FRA.",
+      "type": "string"
+    },
+    "railroad_code": {
+      "title": "Railroad Code",
+      "description": "Reporting mark of the primary operating railroad.",
+      "type": "string"
+    },
+    "railroad_name": {
+      "title": "Railroad Name",
+      "description": "Name of the primary operating railroad.",
+      "type": "string"
+    },
+    "state_name": {
+      "title": "State Name",
+      "description": "State name as published in the inventory (uppercase).",
+      "type": "string"
+    },
+    "county_name": {
+      "title": "County Name",
+      "description": "County name as published in the inventory (uppercase).",
+      "type": "string"
+    },
+    "city_name": {
+      "title": "City Name",
+      "description": "City the crossing is in or near, as published (uppercase).",
+      "type": "string"
+    },
+    "street": {
+      "title": "Street",
+      "description": "Closest street or road name at the crossing, when published.",
+      "type": "string"
+    },
+    "highway_name": {
+      "title": "Highway Name",
+      "description": "Name of the highway at the crossing, when published.",
+      "type": "string"
+    },
+    "latitude": {
+      "title": "Latitude",
+      "description": "Latitude of the crossing, when provided by the source.",
+      "type": "number"
+    },
+    "longitude": {
+      "title": "Longitude",
+      "description": "Longitude of the crossing, when provided by the source.",
+      "type": "number"
+    },
+    "lat_long_source": {
+      "title": "Latitude/Longitude Source",
+      "description": "How the coordinates were determined, as published (e.g. Estimated).",
+      "type": "string"
+    },
+    "crossing_type": {
+      "title": "Crossing Type",
+      "description": "Crossing ownership type: Public or Private.",
+      "type": "string"
+    },
+    "crossing_purpose": {
+      "title": "Crossing Purpose",
+      "description": "Crossing purpose as published (e.g. Highway).",
+      "type": "string"
+    },
+    "crossing_position": {
+      "title": "Crossing Position",
+      "description": "Crossing position as published (e.g. At Grade).",
+      "type": "string"
+    },
+    "is_closed": {
+      "title": "Is Closed",
+      "description": "True when the FRA inventory marks the crossing as closed.",
+      "type": "boolean"
+    },
+    "warning_device_code": {
+      "title": "Warning Device Code",
+      "description": "FRA code for the highest level of warning-device protection at the crossing (source field wdcode).",
+      "type": "string"
+    },
+    "signs_or_signals": {
+      "title": "Signs or Signals",
+      "description": "True when signs or signals are present at the crossing.",
+      "type": "boolean"
+    },
+    "train_detection": {
+      "title": "Train Detection",
+      "description": "Train detection type as published (e.g. None).",
+      "type": "string"
+    },
+    "whistle_ban": {
+      "title": "Whistle Ban",
+      "description": "Whistle ban / quiet zone status as published, when present.",
+      "type": "string"
+    },
+    "trains_day_thru": {
+      "title": "Daytime Through Trains",
+      "description": "Through train movements per day (daytime).",
+      "type": "integer"
+    },
+    "trains_night_thru": {
+      "title": "Nighttime Through Trains",
+      "description": "Through train movements per day (nighttime).",
+      "type": "integer"
+    },
+    "trains_switching": {
+      "title": "Switching Trains",
+      "description": "Switching train movements per day.",
+      "type": "integer"
+    },
+    "trains_transit": {
+      "title": "Transit Trains",
+      "description": "Transit train movements per day.",
+      "type": "integer"
+    },
+    "trains_per_day_total": {
+      "title": "Total Trains Per Day",
+      "description": "Computed total: daytime through + nighttime through + switching + transit movements per day.",
+      "type": "integer"
+    },
+    "passenger_trains_per_day": {
+      "title": "Passenger Trains Per Day",
+      "description": "Passenger trains per day at the crossing.",
+      "type": "integer"
+    },
+    "max_speed_mph": {
+      "title": "Max Timetable Speed (mph)",
+      "description": "Maximum timetable speed over the crossing, in mph.",
+      "type": "integer"
+    },
+    "main_tracks": {
+      "title": "Main Tracks",
+      "description": "Number of main tracks at the crossing.",
+      "type": "integer"
+    },
+    "highway_aadt": {
+      "title": "Highway AADT",
+      "description": "Annual average daily traffic on the highway at the crossing, when published.",
+      "type": "number"
+    },
+    "highway_aadt_year": {
+      "title": "Highway AADT Year",
+      "description": "Year of the published AADT count, when present.",
+      "type": "string"
+    },
+    "revision_date": {
+      "title": "Revision Date",
+      "description": "Date the crossing's inventory record was last revised, YYYY-MM-DD.",
+      "type": "string"
+    },
+    "source_endpoint": {
+      "title": "Source Endpoint",
+      "description": "Official FRA dataset page on data.transportation.gov the records were retrieved from.",
+      "type": "string"
+    },
+    "scraped_at": {
+      "title": "Retrieved At",
+      "description": "UTC timestamp of when this Actor retrieved the record (ISO 8601).",
+      "type": "string"
+    }
+  },
+  "title": "US Railroad Grade Crossing Inventory Dataset",
+  "views": {}
+}

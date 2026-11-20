@@ -1,0 +1,90 @@
+{
+  "description": "Configure state, railroad, county, crossing-type, status, and recency filters to extract US railroad grade crossing inventory records from the FRA's official open data.",
+  "properties": {
+    "states": {
+      "default": [],
+      "prefill": [],
+      "description": "US state names to include (e.g. [\"Texas\", \"Ohio\"]). Matched case-insensitively against the published state name. Empty means all states.",
+      "editor": "stringList",
+      "title": "States (Optional)",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "railroadCode": {
+      "description": "Optional railroad reporting mark / code, exactly as published (e.g. \"BNSF\", \"UP\", \"CSX\").",
+      "editor": "textfield",
+      "example": "BNSF",
+      "title": "Railroad Code (Optional)",
+      "type": "string"
+    },
+    "county": {
+      "description": "Optional county name keyword, matched case-insensitively as a substring (e.g. \"Harris\").",
+      "editor": "textfield",
+      "example": "Harris",
+      "title": "County Keyword (Optional)",
+      "type": "string"
+    },
+    "crossingType": {
+      "default": "all",
+      "prefill": "all",
+      "description": "Filter by crossing ownership type as published by the FRA.",
+      "editor": "select",
+      "enum": [
+        "all",
+        "Public",
+        "Private"
+      ],
+      "enumTitles": [
+        "All Crossings",
+        "Public",
+        "Private"
+      ],
+      "title": "Crossing Type",
+      "type": "string"
+    },
+    "activeOnly": {
+      "default": true,
+      "prefill": true,
+      "description": "When true, only crossings not marked closed in the inventory are returned.",
+      "editor": "checkbox",
+      "title": "Active Crossings Only",
+      "type": "boolean"
+    },
+    "updatedWithinDays": {
+      "default": 0,
+      "prefill": 0,
+      "description": "Only crossings whose inventory record was revised within the last N days. 0 means no recency filter.",
+      "editor": "number",
+      "maximum": 36500,
+      "minimum": 0,
+      "title": "Updated Within Days (0 = Any)",
+      "type": "integer"
+    },
+    "minTrainsPerDay": {
+      "default": 0,
+      "prefill": 0,
+      "description": "Only crossings whose total trains per day (through + switching + transit, day + night) is at least this value.",
+      "editor": "number",
+      "maximum": 10000,
+      "minimum": 0,
+      "title": "Minimum Trains Per Day",
+      "type": "integer"
+    },
+    "maxItems": {
+      "default": 100,
+      "prefill": 100,
+      "description": "Maximum number of crossing records to extract.",
+      "editor": "number",
+      "maximum": 5000,
+      "minimum": 1,
+      "title": "Max Crossings",
+      "type": "integer"
+    }
+  },
+  "required": [],
+  "schemaVersion": 1,
+  "title": "US Railroad Grade Crossing Inventory Input",
+  "type": "object"
+}

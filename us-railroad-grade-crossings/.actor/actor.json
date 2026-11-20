@@ -1,0 +1,69 @@
+{
+  "actorSpecification": 1,
+  "description": "Extract standardized US railroad grade crossing inventory records from the Federal Railroad Administration's official open data on data.transportation.gov (Public Domain, U.S. Government Works). One item per crossing with location, railroad, warning-device, train-traffic, and highway-traffic fields. Filter by state, railroad, county, crossing type, active status, and update recency.",
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "meta": {
+    "generatedBy": "Muse Spark (M) via Muse",
+    "templateId": "python-start"
+  },
+  "name": "us-railroad-grade-crossings",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "US Railroad Grade Crossing Inventory Dataset",
+      "views": {
+        "overview": {
+          "display": {
+            "component": "table",
+            "properties": {
+              "crossing_id": {
+                "format": "text",
+                "label": "Crossing ID"
+              },
+              "railroad_name": {
+                "format": "text",
+                "label": "Railroad"
+              },
+              "state_name": {
+                "format": "text",
+                "label": "State"
+              },
+              "county_name": {
+                "format": "text",
+                "label": "County"
+              },
+              "city_name": {
+                "format": "text",
+                "label": "City"
+              },
+              "crossing_type": {
+                "format": "text",
+                "label": "Type"
+              },
+              "trains_per_day_total": {
+                "format": "number",
+                "label": "Trains/Day"
+              }
+            }
+          },
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "crossing_id",
+              "railroad_name",
+              "state_name",
+              "county_name",
+              "city_name",
+              "crossing_type",
+              "trains_per_day_total"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "title": "US Railroad Grade Crossing Inventory — Official FRA Open Data",
+  "version": "0.1",
+  "output": "./output_schema.json"
+}

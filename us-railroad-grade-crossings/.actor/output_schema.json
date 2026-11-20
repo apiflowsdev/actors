@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "US Railroad Grade Crossing Inventory output",
+  "description": "Standardized FRA grade crossing inventory records delivered in the Actor's default dataset (one JSON item per crossing).",
+  "properties": {
+    "crossings": {
+      "type": "string",
+      "title": "Crossing records",
+      "description": "Normalized grade crossing inventory records in the default dataset.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}
