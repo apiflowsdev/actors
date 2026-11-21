@@ -1,0 +1,233 @@
+{
+ "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+ "actorSpecification": 1,
+ "fields": {
+  "city": {
+   "description": "Nearest city to the dam as published; empty when the source records none.",
+   "title": "Nearest City",
+   "type": "string"
+  },
+  "condition_assessment": {
+   "description": "Condition assessment as published in the source (Satisfactory / Fair / Poor / Unsatisfactory / Not Rated / Not Available), when present.",
+   "title": "Condition Assessment",
+   "type": "string"
+  },
+  "condition_assessment_date": {
+   "description": "Date of the published condition assessment, YYYY-MM-DD, when present.",
+   "title": "Condition Assessment Date",
+   "type": "string"
+  },
+  "congressional_district": {
+   "description": "Congressional district description as published in the source.",
+   "title": "Congressional District",
+   "type": "string"
+  },
+  "county": {
+   "description": "County (parish) where the dam is located, as published.",
+   "title": "County",
+   "type": "string"
+  },
+  "dam_height_ft": {
+   "description": "Dam height in feet as published, when present.",
+   "title": "Dam Height (ft)",
+   "type": "number"
+  },
+  "dam_length_ft": {
+   "description": "Length of the dam crest in feet as published, when present.",
+   "title": "Dam Length (ft)",
+   "type": "number"
+  },
+  "dam_name": {
+   "description": "Name of the dam as published in the National Inventory of Dams (NID).",
+   "title": "Dam Name",
+   "type": "string"
+  },
+  "dam_types": {
+   "description": "All construction types recorded for the dam, separated by '; ', as published.",
+   "title": "Dam Types",
+   "type": "string"
+  },
+  "data_updated": {
+   "description": "Date the source record was last updated by its reporting agency, YYYY-MM-DD.",
+   "title": "Data Updated",
+   "type": "string"
+  },
+  "distance_to_city_mi": {
+   "description": "Distance in miles from the dam to the nearest city, when the source records a city.",
+   "title": "Distance to City (mi)",
+   "type": "number"
+  },
+  "drainage_area_sq_mi": {
+   "description": "Drainage area in square miles as published, when present.",
+   "title": "Drainage Area (sq mi)",
+   "type": "number"
+  },
+  "eap_last_revision_date": {
+   "description": "Date of the last Emergency Action Plan revision, YYYY-MM-DD, when present.",
+   "title": "EAP Last Revision Date",
+   "type": "string"
+  },
+  "eap_status": {
+   "description": "Emergency Action Plan status as published (Yes / No / Not Required). Only the status is published; no plan document or contents are included.",
+   "title": "EAP Status",
+   "type": "string"
+  },
+  "federal_regulated": {
+   "description": "Whether the dam is regulated by a federal agency (Yes / No), as published.",
+   "title": "Federal Regulated",
+   "type": "string"
+  },
+  "hazard_potential_class": {
+   "description": "Hazard potential classification published in the source (High / Significant / Low / Undetermined). It classifies the consequences if the dam failed \u2014 loss of life and damage downstream \u2014 and is NOT a statement about the dam's condition.",
+   "title": "Hazard Potential Class",
+   "type": "string"
+  },
+  "hydraulic_height_ft": {
+   "description": "Hydraulic height in feet as published, when present.",
+   "title": "Hydraulic Height (ft)",
+   "type": "number"
+  },
+  "inspection_frequency_years": {
+   "description": "Published inspection frequency in years, when present.",
+   "title": "Inspection Frequency (years)",
+   "type": "integer"
+  },
+  "last_inspection_date": {
+   "description": "Most recent inspection date recorded in the source, YYYY-MM-DD, when present.",
+   "title": "Last Inspection Date",
+   "type": "string"
+  },
+  "latitude": {
+   "description": "Latitude of the dam in decimal degrees (NAD83), when provided by the source.",
+   "title": "Latitude",
+   "type": "number"
+  },
+  "longitude": {
+   "description": "Longitude of the dam in decimal degrees (NAD83), when provided by the source.",
+   "title": "Longitude",
+   "type": "number"
+  },
+  "max_discharge_cfs": {
+   "description": "Maximum discharge in cubic feet per second as published, when present.",
+   "title": "Max Discharge (cfs)",
+   "type": "number"
+  },
+  "max_storage_acre_ft": {
+   "description": "Maximum storage capacity in acre-feet as published, when present.",
+   "title": "Max Storage (acre-ft)",
+   "type": "number"
+  },
+  "nid_height_ft": {
+   "description": "General dam height used by the NID in feet (the accepted maximum of the published heights), when present.",
+   "title": "NID Height (ft)",
+   "type": "number"
+  },
+  "nid_id": {
+   "description": "National Inventory of Dams identification number assigned by USACE; stable across editions.",
+   "title": "NID ID",
+   "type": "string"
+  },
+  "normal_storage_acre_ft": {
+   "description": "Normal storage capacity in acre-feet as published, when present.",
+   "title": "Normal Storage (acre-ft)",
+   "type": "number"
+  },
+  "operational_status": {
+   "description": "Operational status as published in the source, when present.",
+   "title": "Operational Status",
+   "type": "string"
+  },
+  "owner_types": {
+   "description": "All owner types recorded for the dam, separated by '; ', as published.",
+   "title": "Owner Types",
+   "type": "string"
+  },
+  "primary_dam_type": {
+   "description": "Primary construction type of the dam as published (e.g. Earth, Gravity, Rockfill).",
+   "title": "Primary Dam Type",
+   "type": "string"
+  },
+  "primary_owner_type": {
+   "description": "Primary owner type as published (Federal / State / Local Government / Public Utility / Private / Tribal Government / Not Listed). Owner names are never output.",
+   "title": "Primary Owner Type",
+   "type": "string"
+  },
+  "primary_purpose": {
+   "description": "Primary purpose of the dam as published (e.g. Flood Control, Water Supply, Hydroelectric, Recreation).",
+   "title": "Primary Purpose",
+   "type": "string"
+  },
+  "purposes": {
+   "description": "All purposes recorded for the dam, separated by '; ', as published.",
+   "title": "Purposes",
+   "type": "string"
+  },
+  "river_name": {
+   "description": "River or stream the dam impounds, as published.",
+   "title": "River",
+   "type": "string"
+  },
+  "scraped_at": {
+   "description": "UTC timestamp of when this Actor retrieved the record (ISO 8601).",
+   "title": "Retrieved At",
+   "type": "string"
+  },
+  "source_agency": {
+   "description": "Agency that supplied the record to the NID, as published.",
+   "title": "Source Agency",
+   "type": "string"
+  },
+  "source_endpoint": {
+   "description": "Official USACE NID national GeoPackage file the record was retrieved from.",
+   "title": "Source Endpoint",
+   "type": "string"
+  },
+  "spillway_type": {
+   "description": "Spillway type as published (e.g. Controlled, Uncontrolled), when present.",
+   "title": "Spillway Type",
+   "type": "string"
+  },
+  "state": {
+   "description": "Two-letter state / territory code of the dam's location (NID stateKey).",
+   "title": "State Code",
+   "type": "string"
+  },
+  "state_name": {
+   "description": "State / territory name as published in the source.",
+   "title": "State Name",
+   "type": "string"
+  },
+  "state_regulated": {
+   "description": "Whether the dam is regulated by the state (Yes / No), as published.",
+   "title": "State Regulated",
+   "type": "string"
+  },
+  "state_regulatory_agency": {
+   "description": "State agency regulating the dam, when published.",
+   "title": "State Regulatory Agency",
+   "type": "string"
+  },
+  "structural_height_ft": {
+   "description": "Structural height in feet as published, when present.",
+   "title": "Structural Height (ft)",
+   "type": "number"
+  },
+  "surface_area_acres": {
+   "description": "Reservoir surface area in acres as published, when present.",
+   "title": "Surface Area (acres)",
+   "type": "number"
+  },
+  "year_completed": {
+   "description": "Year the dam's construction was completed, when published.",
+   "title": "Year Completed",
+   "type": "integer"
+  },
+  "zip_code": {
+   "description": "ZIP code of the dam's location as published.",
+   "title": "ZIP Code",
+   "type": "string"
+  }
+ },
+ "title": "US Dam Inventory Dataset",
+ "views": {}
+}
