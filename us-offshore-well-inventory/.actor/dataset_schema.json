@@ -1,0 +1,133 @@
+{
+ "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+ "actorSpecification": 1,
+ "fields": {
+  "api_well_number": {
+   "description": "Fourteen-digit API well number assigned by BSEE; unique per borehole in the inventory.",
+   "title": "API Well Number",
+   "type": "string"
+  },
+  "borehole_status_code": {
+   "description": "Borehole status code as published (e.g. COM = completed, PA = permanently abandoned, TA = temporarily abandoned, ST = shut-in, CNL = cancelled).",
+   "title": "Borehole Status Code",
+   "type": "string"
+  },
+  "borehole_status_date": {
+   "description": "Date of the published borehole status, YYYY-MM-DD, when present.",
+   "title": "Borehole Status Date",
+   "type": "string"
+  },
+  "bottom_area_code": {
+   "description": "OCS area code of the bottom-hole location.",
+   "title": "Bottom Area Code",
+   "type": "string"
+  },
+  "bottom_block_number": {
+   "description": "OCS block number of the bottom-hole location, as published.",
+   "title": "Bottom Block Number",
+   "type": "string"
+  },
+  "bottom_hole_total_md_ft": {
+   "description": "Bottom-hole total measured depth in feet, when published. The source masks some depths as \"*****\"; those are delivered as null.",
+   "title": "Bottom-Hole Total MD (ft)",
+   "type": "number"
+  },
+  "bottom_lease_number": {
+   "description": "OCS lease number of the bottom-hole location, when present.",
+   "title": "Bottom Lease Number",
+   "type": "string"
+  },
+  "completions_count": {
+   "description": "Number of completion records the source publishes for this well (0 when none).",
+   "title": "Completions",
+   "type": "integer"
+  },
+  "field_name_code": {
+   "description": "Bottom-hole field name code as published (e.g. \"MC524\").",
+   "title": "Field Name Code",
+   "type": "string"
+  },
+  "latest_completion_date": {
+   "description": "Completion date of the most recent completion record, YYYY-MM-DD; empty when the well has no completion records.",
+   "title": "Latest Completion Date",
+   "type": "string"
+  },
+  "latest_completion_status_code": {
+   "description": "Status code of the most recent completion record, as published (e.g. POW, GSI, OSI); empty when the well has no completion records.",
+   "title": "Latest Completion Status Code",
+   "type": "string"
+  },
+  "operator_name": {
+   "description": "Operator (company) name as published. Operators in the source are companies; no individual names or contact details are included.",
+   "title": "Operator",
+   "type": "string"
+  },
+  "production_intervals": {
+   "description": "All production interval codes recorded for the well, separated by '; ', as published; empty when none.",
+   "title": "Production Intervals",
+   "type": "string"
+  },
+  "region_code": {
+   "description": "BSEE OCS region code: G (Gulf of Mexico), P (Pacific), Y (Alaska), A (Atlantic).",
+   "title": "Region Code",
+   "type": "string"
+  },
+  "region_name": {
+   "description": "BSEE OCS region name for the region code.",
+   "title": "Region",
+   "type": "string"
+  },
+  "scraped_at": {
+   "description": "UTC timestamp of when this Actor retrieved the record (ISO 8601).",
+   "title": "Retrieved At",
+   "type": "string"
+  },
+  "source_endpoint": {
+   "description": "Official BSEE raw data file (APIRawData.zip) the record was retrieved from.",
+   "title": "Source Endpoint",
+   "type": "string"
+  },
+  "surface_area_code": {
+   "description": "OCS area code of the surface location (e.g. \"MC\" = Mississippi Canyon, \"GC\" = Green Canyon).",
+   "title": "Surface Area Code",
+   "type": "string"
+  },
+  "surface_block_number": {
+   "description": "OCS block number of the surface location, as published.",
+   "title": "Surface Block Number",
+   "type": "string"
+  },
+  "surface_lease_number": {
+   "description": "OCS lease number of the surface location (e.g. \"G33161\"), when present.",
+   "title": "Surface Lease Number",
+   "type": "string"
+  },
+  "total_depth_date": {
+   "description": "Date total depth was reached, YYYY-MM-DD, when present.",
+   "title": "Total Depth Date",
+   "type": "string"
+  },
+  "well_name": {
+   "description": "Well name as published in the API List (typically the well designation, e.g. \"001\").",
+   "title": "Well Name",
+   "type": "string"
+  },
+  "well_name_suffix": {
+   "description": "Well name suffix as published (e.g. \"ST00BP01\" for a sidetrack / bypass designation), when present.",
+   "title": "Well Name Suffix",
+   "type": "string"
+  },
+  "well_spud_date": {
+   "description": "Date drilling began (spud date), YYYY-MM-DD, when present.",
+   "title": "Spud Date",
+   "type": "string"
+  },
+  "well_type_code": {
+   "description": "Well type code as published in the source data (e.g. D, E, C).",
+   "title": "Well Type Code",
+   "type": "string"
+  }
+ },
+ "title": "US Offshore Well Inventory Dataset",
+ "views": {}
+}
